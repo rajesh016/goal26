@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { HomePage, MatchesPage, StandingsPage, NewsPage, ScorersPage } from './components/Pages';
+import PrivacyPage from './components/PrivacyPage';
 import { matches, standings } from './data';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
       case 'standings': return <StandingsPage standings={standings} />;
       case 'news':      return <NewsPage />;
       case 'scorers':   return <ScorersPage />;
+      case 'privacy':   return <PrivacyPage />;
       default:          return <HomePage matches={matches} standings={standings} setActivePage={setActivePage} />;
     }
   };
@@ -31,7 +33,7 @@ export default function App() {
       <main style={{ flex: 1 }}>
         {renderPage()}
       </main>
-      <Footer />
+      <Footer setActivePage={setActivePage} />
     </div>
   );
 }
